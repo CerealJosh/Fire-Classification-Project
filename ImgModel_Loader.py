@@ -6,8 +6,8 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import preprocess_input, decode_predictions
 
 # Define the path to your trained model and the directory of images you want to classify
-model_path = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/MNet_Unfine_image_classifier.h5'
-image_dir = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/Fire.png'
+model_path = 'Image_Models/MNet_Unfine_image_classifier.h5'
+image_dir = 'Fire.png'
 
 # Load the trained model
 model = tf.keras.models.load_model(model_path)

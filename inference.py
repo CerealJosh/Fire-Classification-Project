@@ -3,8 +3,8 @@ import tensorflow as tf
 import numpy as np
 import warnings
 
-data_path = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/data.json'
-labels_path = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/labels.txt'
+data_path = 'data.json'
+labels_path = 'Data_Models/labels.txt'
 labels = []
 
 warnings.filterwarnings("ignore", category=UserWarning, message="X does not have valid feature names")
@@ -16,14 +16,14 @@ with open(data_path, 'r') as g:
         Z= Z.strip("[]")
         Z = Z.split(",")
 
-files_list = ['C:/Users/Josh/source/repos/ProjectServer/Josh-main/logistic_regression.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/decision_tree.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/k_neighbors.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/random_forest.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/gradient_boost.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/x_gradient_boost.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/stacking.pkl',
-              'C:/Users/Josh/source/repos/ProjectServer/Josh-main/neural_network.keras']
+files_list = ['Trained_Models/logistic_regression.pkl',
+              'Trained_Models/decision_tree.pkl',
+              'Trained_Models/k_neighbors.pkl',
+              'Trained_Models/random_forest.pkl',
+              'Trained_Models/gradient_boost.pkl',
+              'Trained_Models/x_gradient_boost.pkl',
+              'Trained_Models/stacking.pkl',
+              'Trained_Models/neural_network.keras']
 def get_predictions(model_num,features):
     
     features = np.reshape(features,[1,5])
