@@ -1,4 +1,5 @@
 pandas
+graphviz
 matplotlib
 xgboost
 seaborn
@@ -9,3 +10,5 @@ colorthief
 pyqt5
 lxml
 OpenCV-python
+numpy
+requests

@@ -1,16 +1,17 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import preprocess_input, decode_predictions
-import os
 
 # Define the path to your trained model and the directory of images you want to classify
-model_path = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/VGG16_image_classifier.h5'
+model_path = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/MNet_Unfine_image_classifier.h5'
 image_dir = 'C:/Users/Josh/source/repos/ProjectServer/Josh-main/Fire.png'
 
 # Load the trained model
 model = tf.keras.models.load_model(model_path)
-model.class_names = ['blue', 'green', 'orange', 'white']  # Define the class names
+model.class_names = ["Blue_fire","Green_fire","Orange_fire"]  # Define the class names
 
 # Define image dimensions (must match the dimensions used during training)
 img_height = 224
@@ -32,7 +33,7 @@ def predict_image(img_path):
     Predict the class of a single image using the trained model.
     """
     img_array = load_and_preprocess_image(img_path)
-    predictions = model.predict(img_array)
+    predictions = model.predict(img_array, verbose=0)
     predicted_index = np.argmax(predictions[0])
     predicted_class = model.class_names[predicted_index]
     return predicted_class
@@ -44,7 +45,7 @@ def classify_images(image_dir):
     image_files = image_dir
 
     predicted_class = predict_image(image_dir)
-    print(f"Predicted Class: {predicted_class}")
+    print(predicted_class)
 
 # Run the classification
 classify_images(image_dir)
